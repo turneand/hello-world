@@ -1,6 +1,6 @@
 node {
   stage ("Checkout") {
-    echo Checkiut
+    echo "Checkout"
   }
 
   stage ("Build") {
