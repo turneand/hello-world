@@ -1,6 +1,10 @@
 node {
   def mvn = "/opt/apache-maven/bin/mvn --batch-mode"
 
+  stage ("Checkout") {
+    checkout scm
+  }
+  
   stage ("Update Version") {
     sh "ls -l"
     sh "pwd"
