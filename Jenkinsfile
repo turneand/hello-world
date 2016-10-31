@@ -5,7 +5,7 @@ node {
     }
 
     stage ("Update Version") {
-      sh mvn versions:set -DnewVersion=1.0-${currentBuild.number}"
+      sh "mvn versions:set -DnewVersion=1.0-${currentBuild.number}"
     }
 
     stage ("Build") {
