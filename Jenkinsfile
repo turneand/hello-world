@@ -14,4 +14,11 @@ node {
   stage ("Build") {
     sh "${mvn} org.jacoco:jacoco-maven-plugin:prepare-agent install"
   }
+
+  stage('SonarQube analysis') {
+    withSonarQubeEnv('DEFAULT') {
+      // requires SonarQube Scanner for Maven 3.2+
+      sh 'mvn sonar:sonar'
+    }
+  }
 }
