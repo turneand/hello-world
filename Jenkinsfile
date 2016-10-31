@@ -1,5 +1,7 @@
 node {
+  echo "BEFORE: ${PATH}"
   withEnv(["PATH+MAVEN=${tool 'apache-maven-3.3.9'}/bin"]) {
+    echo "AFTER: ${PATH}"
     stage ("Checkout") {
       checkout scm
     }
