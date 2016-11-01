@@ -1,8 +1,10 @@
 node {
-  withEnv(["env.JAVA_HOME=${tool 'jdk-1.8'}]", "PATH+MAVEN=${tool 'apache-maven-3'}/bin", "PATH+NODE=${tool 'nodejs-7'}/bin"]) {
-    echo "AFTER: JH ${env.JAVA_HOME}"
+  echo "BEFORE: JAVA_HOME ${env.JAVA_HOME}"
+  echo "BEFORE: P ${PATH}"
+
+  withEnv(["env.JAVA_HOME=${tool 'jdk-1.8'}]", "PATH+MAVEN=${tool 'apache-maven-3'}/bin", "PATH+NODE=${tool 'nodejs-7'}/bin"], "PATH+GRADLE=${tool 'gradle-3'}/bin"]) {
+    echo "AFTER: JAVA_HOME ${env.JAVA_HOME}"
     echo "AFTER: P ${PATH}"
-    echo "AFTER: OPTS ${env.MAVEN_OPTS}"
 
     stage ("Checkout") {
       checkout scm
@@ -18,6 +20,10 @@ node {
 
     stage ("Node") {
       sh "node hello.js" 
+    }
+
+    stage ("Gradle") {
+      sh "gradle -version" 
     }
 
     stage('SonarQube analysis') {
