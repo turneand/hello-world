@@ -1,6 +1,7 @@
 node {
     echo "BEFORE: JH ${env.JAVA_HOME}"
     echo "BEFORE: P ${PATH}"
+    echo "TEST: ${tool 'apache-maven-3'}"
 
   withEnv(["PATH+MAVEN=${tool 'apache-maven-3'}/bin"]) {
     env.JAVA_HOME = tool 'JDK-1.8'
