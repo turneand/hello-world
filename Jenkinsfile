@@ -2,7 +2,7 @@ node {
   echo "BEFORE: JAVA_HOME ${env.JAVA_HOME}"
   echo "BEFORE: P ${PATH}"
 
-  withEnv(["env.JAVA_HOME=${tool 'jdk-1.8'}]", "PATH+MAVEN=${tool 'apache-maven-3'}/bin", "PATH+NODE=${tool 'nodejs-7'}/bin"], "PATH+GRADLE=${tool 'gradle-3'}/bin"]) {
+  withEnv(["env.JAVA_HOME=${tool 'jdk-1.8'}]", "PATH+MAVEN=${tool 'apache-maven-3'}/bin", "PATH+NODE=${tool 'nodejs-7'}/bin", "PATH+GRADLE=${tool 'gradle-3'}/bin"]) {
     echo "AFTER: JAVA_HOME ${env.JAVA_HOME}"
     echo "AFTER: P ${PATH}"
 
