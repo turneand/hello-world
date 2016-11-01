@@ -1,5 +1,5 @@
 node {
-  withEnv(["env.JAVA_HOME=${tool 'JDK-1.8'}]", "PATH+MAVEN=${tool 'apache-maven-3'}/bin", "PATH+NODE=${tool 'nodejs-7'}/bin"]) {
+  withEnv(["env.JAVA_HOME=${tool 'jdk-1.8'}]", "PATH+MAVEN=${tool 'apache-maven-3'}/bin", "PATH+NODE=${tool 'nodejs-7'}/bin"]) {
     echo "AFTER: JH ${env.JAVA_HOME}"
     echo "AFTER: P ${PATH}"
     echo "AFTER: OPTS ${env.MAVEN_OPTS}"
