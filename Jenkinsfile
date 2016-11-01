@@ -14,6 +14,10 @@ node {
       sh "mvn -B org.jacoco:jacoco-maven-plugin:prepare-agent install"
     }
 
+    stage ("Node") {
+      sh "node hello.js" 
+    }
+
     stage('SonarQube analysis') {
 //      withSonarQubeEnv('SonarQube Scanner 2.8') {
       withSonarQubeEnv('sonar-server') {
