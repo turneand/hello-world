@@ -26,6 +26,10 @@ node {
       sh "gradle -version" 
     }
 
+    stage ("Gradle") {
+      sh "gradle -f android/build.gradle" 
+    }
+
     stage('SonarQube analysis') {
       withSonarQubeEnv('sonar-server') {
         sh "mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar"
