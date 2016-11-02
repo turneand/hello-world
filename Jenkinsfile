@@ -27,7 +27,7 @@ node {
     }
 
     stage ("Gradle") {
-      sh "gradle -f android/build.gradle" 
+      sh "gradle -b android/build.gradle" 
     }
 
     stage('SonarQube analysis') {
