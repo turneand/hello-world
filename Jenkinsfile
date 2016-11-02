@@ -10,7 +10,7 @@ node {
       checkout scm
     }
 
-    withEnv(["PATH+MAVEN=${tool 'apache-maven-3'}/bin") {
+    withEnv(["PATH+MAVEN=${tool 'apache-maven-3'}/bin"]) {
       stage ("Update Version") {
         sh "mvn -B versions:set -DnewVersion=1.0-${currentBuild.number}"
       }
