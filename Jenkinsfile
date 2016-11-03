@@ -38,7 +38,7 @@ node {
       }
 
       stage ("Gradle") {
-        sh "gradle -b android/build.gradle" 
+        sh "gradle -b android/build.gradle build" 
       }
     }
   }
