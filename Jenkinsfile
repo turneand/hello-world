@@ -48,6 +48,6 @@ node {
         sh "gradle -b android/build.gradle build" 
       }
     }
-*/
   }
+*/
 }
