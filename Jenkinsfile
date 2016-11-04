@@ -2,7 +2,7 @@ node {
   echo "BEFORE: JAVA_HOME ${env.JAVA_HOME}"
   echo "BEFORE: P ${PATH}"
 
-  docker.withEnv("mydocker") {
+  docker.withTool("mydocker") {
     docker.image('maven:3.3.3-jdk-8').inside {
       checkout scm
       sh 'mvn -B versions:set -DnewVersion=1.0-${currentBuild.number}'
