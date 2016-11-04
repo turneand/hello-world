@@ -2,6 +2,13 @@ node {
   echo "BEFORE: JAVA_HOME ${env.JAVA_HOME}"
   echo "BEFORE: P ${PATH}"
 
+  docker.image('maven:3.3.3-jdk-8').inside {
+    checkout scm
+    sh 'mvn -B versions:set -DnewVersion=1.0-${currentBuild.number}'
+    sh 'mvn -B install'
+  }
+
+/*
   withEnv(["env.JAVA_HOME=${tool 'jdk-1.8'}]"]) {
     echo "AFTER: JAVA_HOME ${env.JAVA_HOME}"
     echo "AFTER: P ${PATH}"
@@ -41,5 +48,6 @@ node {
         sh "gradle -b android/build.gradle build" 
       }
     }
+*/
   }
 }
