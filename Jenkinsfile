@@ -1,7 +1,7 @@
 node {
   echo "BEFORE: JAVA_HOME ${env.JAVA_HOME}"
   echo "BEFORE: P ${PATH}"
-
+/*
   docker.withTool("mydocker") {
     docker.image('maven:3.3.3-jdk-8').inside {
       checkout scm
@@ -9,8 +9,8 @@ node {
       sh 'mvn -B install'
     }
   }
+*/
 
-/*
   withEnv(["env.JAVA_HOME=${tool 'jdk-1.8'}]"]) {
     echo "AFTER: JAVA_HOME ${env.JAVA_HOME}"
     echo "AFTER: P ${PATH}"
@@ -41,15 +41,13 @@ node {
       }
     }
 
-    withEnv(["PATH+GRADLE=${tool 'gradle-3'}/bin","ANDROID_HOME=/opt/android-sdk-linux"]) {
+//    withEnv(["PATH+GRADLE=${tool 'gradle-3'}/bin","ANDROID_HOME=/opt/android-sdk-linux"]) {
       stage ("Gradle") {
-        sh "gradle -version" 
+        //sh "gradle -version" 
+        //sh "gradle -b android/build.gradle build" 
+        sh "./gradlew -version" 
+        sh "./gradlew -b android/build.gradle build" 
       }
-
-      stage ("Gradle") {
-        sh "gradle -b android/build.gradle build" 
-      }
-    }
+//    }
   }
-*/
 }
