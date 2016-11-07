@@ -1,3 +1,16 @@
+// Enables SDK auto-install, and uses it to run the given block
+def withAndroidSdk(String sdkDir = '/tmp/android-sdk',
+ Closure body) {
+ // Create the SDK directory, and accept the licences
+ // (see: d.android.com/r/studio-ui/export-licenses.html)
+ writeFile file: "${sdkDir}/licenses/android-sdk-license",
+ text: 'e6b7c2ab7fa2298c1...\n...5d1a37fbf41ea526'
+ // Run the given closure with this SDK directory
+ withEnv(["ANDROID_HOME=${sdkDir}"]) {
+ body()
+ }
+}
+
 node {
   echo "BEFORE: JAVA_HOME ${env.JAVA_HOME}"
   echo "BEFORE: P ${PATH}"
@@ -41,6 +54,8 @@ node {
       }
     }
 */
+    
+    withAndroidSdk() {
 //    withEnv(["PATH+GRADLE=${tool 'gradle-3'}/bin","ANDROID_HOME=/opt/android-sdk-linux"]) {
       stage ("Gradle") {
         //sh "gradle -version" 
@@ -48,6 +63,6 @@ node {
         sh "./android/gradlew -version" 
         sh "./android/gradlew -b android/build.gradle build" 
       }
-//    }
+    }
   }
 }
