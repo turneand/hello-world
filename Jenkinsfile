@@ -18,7 +18,7 @@ node {
     stage ("Checkout") {
       checkout scm
     }
-
+/*
     withEnv(["PATH+MAVEN=${tool 'apache-maven-3'}/bin"]) {
       stage ("Update Version") {
         sh "mvn -B versions:set -DnewVersion=1.0-${currentBuild.number}"
@@ -40,13 +40,13 @@ node {
         sh "node hello.js" 
       }
     }
-
+*/
 //    withEnv(["PATH+GRADLE=${tool 'gradle-3'}/bin","ANDROID_HOME=/opt/android-sdk-linux"]) {
       stage ("Gradle") {
         //sh "gradle -version" 
         //sh "gradle -b android/build.gradle build" 
-        sh "./gradlew -version" 
-        sh "./gradlew -b android/build.gradle build" 
+        sh "./android/gradlew -version" 
+        sh "./android/gradlew -b android/build.gradle build" 
       }
 //    }
   }
