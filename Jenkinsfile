@@ -11,7 +11,7 @@ def withAndroidSdk(String sdkDir = '/tmp/android-sdk',
  }
 }
 
-node {
+node('android') {
   echo "BEFORE: JAVA_HOME ${env.JAVA_HOME}"
   echo "BEFORE: P ${PATH}"
 /*
