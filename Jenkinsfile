@@ -63,6 +63,7 @@ node('android') {
      
       stage('SonarQube analysis') {
         withSonarQubeEnv('sonar-server') {
+          sh './android/gradlew tasks'
           sh './android/gradlew sonarqube'
         }
       }     
