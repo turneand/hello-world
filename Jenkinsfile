@@ -1,4 +1,10 @@
-println(currentBuild)
+println(currentBuild.getDescription())
+println(currentBuild.getDisplayName())
+println(currentBuild.getFullDisplayName())
+println(currentBuild.getProjectName())
+println(currentBuild.getFullProjectName())
+
+
 
 
 // Enables SDK auto-install, and uses it to run the given block
