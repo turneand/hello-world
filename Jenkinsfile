@@ -4,7 +4,7 @@ def withAndroidSdk(String sdkDir = '/tmp/android-sdk',
  // Create the SDK directory, and accept the licences
  // (see: d.android.com/r/studio-ui/export-licenses.html)
  writeFile file: "${sdkDir}/licenses/android-sdk-license",
- text: 'e6b7c2ab7fa2298c1...\n...5d1a37fbf41ea526'
+ text: '8933bad161af4178b1185d1a37fbf41ea5269c55'
  // Run the given closure with this SDK directory
  withEnv(["ANDROID_HOME=${sdkDir}"]) {
  body()
