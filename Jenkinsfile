@@ -1,3 +1,6 @@
+println(currentBuild)
+
+
 // Enables SDK auto-install, and uses it to run the given block
 def withAndroidSdk(String sdkDir = '/tmp/android-sdk',
  Closure body) {
