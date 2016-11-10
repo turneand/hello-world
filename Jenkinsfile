@@ -63,6 +63,14 @@ node('android') {
         sh "./android/gradlew -version" 
         sh "./android/gradlew -b android/build.gradle build" 
       }
+     
+      stage('SonarQube analysis') {
+        withSonarQubeEnv('sonar-server') {
+        sh './android/gradlew sonarqube'
+      }
+    }
+  }
+     
     }
   }
 }
