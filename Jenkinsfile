@@ -66,11 +66,9 @@ node('android') {
      
       stage('SonarQube analysis') {
         withSonarQubeEnv('sonar-server') {
-        sh './android/gradlew sonarqube'
-      }
-    }
-  }
-     
+          sh './android/gradlew sonarqube'
+        }
+      }     
     }
   }
 }
