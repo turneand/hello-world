@@ -1,14 +1,5 @@
-println(currentBuild.getDescription())
-println(currentBuild.getDisplayName())
-println(currentBuild.getFullDisplayName())
-println(currentBuild.getProjectName())
-println(currentBuild.getFullProjectName())
-
-
-
-
 // Enables SDK auto-install, and uses it to run the given block
-def withAndroidSdk(String sdkDir = '/tmp/android-sdk',
+def withAndroidSdk(String sdkDir = '/tmp/' + currentBuild.getProjectName(),
  Closure body) {
  // Create the SDK directory, and accept the licences
  // (see: d.android.com/r/studio-ui/export-licenses.html)
