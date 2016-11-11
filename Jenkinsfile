@@ -62,7 +62,8 @@ node('android') {
       }
 
       stage ("Android Lint") {
-        sh "./android/gradlew -b android/build.gradle lint" 
+        sh "./android/gradlew -b android/build.gradle lint"
+        androidLint()
       }
 
      stage('SonarQube analysis') {
