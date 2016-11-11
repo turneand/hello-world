@@ -57,11 +57,15 @@ node('android') {
     
     withAndroidSdk() {
 //    withEnv(["PATH+GRADLE=${tool 'gradle-3'}/bin","ANDROID_HOME=/opt/android-sdk-linux"]) {
-      stage ("Gradle") {
-        //sh "./android/gradlew -b android/build.gradle build" 
+      stage ("Android Build") {
+        sh "./android/gradlew -b android/build.gradle build" 
       }
-     
-      stage('SonarQube analysis') {
+
+      stage ("Android Lint") {
+        sh "./android/gradlew -b android/build.gradle lint" 
+      }
+
+     stage('SonarQube analysis') {
         withSonarQubeEnv('sonar-server') {
           sh './android/gradlew -p ./android sonarqube -info'
         }
