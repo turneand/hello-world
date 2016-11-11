@@ -24,12 +24,17 @@ allprojects {
     }
 }
 
-android {
-    lintOptions {
-        abortOnError false
+subprojects {
+    afterEvaluate {
+        if (getPlugins().hasPlugin('android')) {
+            configure(android.lintOptions) {
+                abortOnError false
+            }
+        }
+
     }
 }
-  
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
