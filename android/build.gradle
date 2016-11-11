@@ -22,14 +22,14 @@ allprojects {
     repositories {
         jcenter()
     }
-
-  android {
-      lintOptions {
-          abortOnError false
-      }
-  }
 }
 
+android {
+    lintOptions {
+        abortOnError false
+    }
+}
+  
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
