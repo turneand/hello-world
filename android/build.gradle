@@ -22,6 +22,12 @@ allprojects {
     repositories {
         jcenter()
     }
+
+  android {
+      lintOptions {
+          abortOnError false
+      }
+  }
 }
 
 task clean(type: Delete) {
