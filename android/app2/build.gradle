@@ -48,7 +48,7 @@ sonarqube {
 //        property "sonar.jdbc.password", "PaSsW0rD"
 //        property "sonar.login", "mylogin"
 //        property "sonar.password", "****"
-        property "sonar.sources", "."
+//        property "sonar.sources", "."
         property "sonar.inclusions", "**/*.java,**/*.xml"
         property "sonar.exclusions", "build/**,**/*.png"
         property "sonar.analysis.mode", "preview"
