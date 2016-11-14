@@ -57,15 +57,16 @@ node('android') {
     
     withAndroidSdk() {
 //    withEnv(["PATH+GRADLE=${tool 'gradle-3'}/bin","ANDROID_HOME=/opt/android-sdk-linux"]) {
-      stage ("Android Build") {
-        sh "./android/gradlew -b android/build.gradle clean build"
-        junit '**/TEST-*.xml'
-      }
 
-      stage ("Android Lint") {
-        sh "./android/gradlew -b android/build.gradle lint"
-        androidLint()
-      }
+//     stage ("Android Build") {
+//       sh "./android/gradlew -b android/build.gradle clean build"
+//       junit '**/TEST-*.xml'
+//      }
+
+//      stage ("Android Lint") {
+//        sh "./android/gradlew -b android/build.gradle lint"
+//        androidLint()
+//      }
 
      stage('SonarQube analysis') {
         withSonarQubeEnv('sonar-server') {
