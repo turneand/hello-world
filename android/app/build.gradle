@@ -33,7 +33,7 @@ android {
     }
 }
 
-sonarRunner {
+sonarqube {
     sonarProperties { 
         property "sonar.host.url", "http://sonar:9000/sonar" 
 //        property "sonar.jdbc.url", "jdbc:postgresql://sonar-db/sonarqube" 
