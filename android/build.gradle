@@ -11,7 +11,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.2'
-        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.2"
+//        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.2"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.1"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -31,10 +32,28 @@ subprojects {
                 abortOnError false
             }
         }
-
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+sonarRunner {
+    sonarProperties { 
+        property "sonar.host.url", "http://sonar:9000/sonar" 
+//        property "sonar.jdbc.url", "jdbc:postgresql://sonar-db/sonarqube" 
+//        property "sonar.jdbc.driverClassName", "com.mysql.jdbc.Driver" 
+        property "sonar.jdbc.username", "sonar" 
+        property "sonar.jdbc.password", "*****" 
+//        property "sonar.login", "mylogin" 
+//        property "sonar.password", "****" 
+//        property "sonar.sources", "src" 
+//        property "sonar.binaries", "build/classes/debug" 
+        property "sonar.profile", "Android Lint" 
+        property "sonar.projectKey", "my.group:project-key" 
+        property "sonar.projectName", "MyProject" 
+        property "sonar.projectVersion", "1.0-SNAPSHOT" 
+        property "sonar.projectDescription", "My Project description" 
+        }
 }
