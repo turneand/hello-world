@@ -70,7 +70,7 @@ node('android') {
 
      stage('SonarQube analysis') {
         //withSonarQubeEnv('sonar-server') {
-          sh './android/gradlew -p ./android sonarqube -info'
+          sh './android/app/gradlew -p ./android/app sonarqube -info'
         //}
       }     
     }
