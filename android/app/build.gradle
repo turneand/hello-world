@@ -1,4 +1,18 @@
 apply plugin: 'com.android.application'
+apply plugin: "org.sonarqube"
+
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+          url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.1"
+    }
+}
 
 android {
     compileSdkVersion 25
@@ -17,6 +31,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+sonarRunner {
+    sonarProperties { 
+        property "sonar.host.url", "http://sonar:9000/sonar" 
+//        property "sonar.jdbc.url", "jdbc:postgresql://sonar-db/sonarqube" 
+//        property "sonar.jdbc.driverClassName", "com.mysql.jdbc.Driver" 
+        property "sonar.jdbc.username", "sonarqube" 
+        property "sonar.jdbc.password", "PaSsW0rD" 
+//        property "sonar.login", "mylogin" 
+//        property "sonar.password", "****" 
+//        property "sonar.sources", "src" 
+//        property "sonar.binaries", "build/classes/debug" 
+        property "sonar.profile", "Android Lint" 
+        property "sonar.projectKey", "my.group:project-key" 
+        property "sonar.projectName", "MyProject" 
+        property "sonar.projectVersion", "1.0-SNAPSHOT" 
+        property "sonar.projectDescription", "My Project description" 
+        }
 }
 
 dependencies {
