@@ -4,9 +4,12 @@ apply plugin: "org.sonarqube"
 
 buildscript {
     repositories {
-        jcenter()
+//        jcenter()
+//        maven {
+//          url "https://plugins.gradle.org/m2/"
+//        }
         maven {
-          url "https://plugins.gradle.org/m2/"
+          url "http://localhost:9002/repository/maven-public/"
         }
     }
     dependencies {
